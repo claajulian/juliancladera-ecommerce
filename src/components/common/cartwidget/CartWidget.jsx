@@ -3,8 +3,8 @@
 export const CartWidget = () => {
     return (
       <>
-          <span>1</span>
           🛒
+          <span>1</span>
       </>
     )
   }
