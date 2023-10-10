@@ -13,5 +13,8 @@ export const customTheme = createTheme({
       primary: 'rgba(241,11,120,0.87)',
       secondary: 'rgba(125,36,17,0.6)',
     },
+    button: {
+      secondary: '#2e7d32'
+    }
   },
 })

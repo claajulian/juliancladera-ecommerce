@@ -4,13 +4,20 @@ import { ItemListContainer } from "./components/pages/itemlistcontainer/ItemList
 import { customTheme } from "./utils/themeConfig";
 import { ItemDetailContainer } from "./components/pages/home/itemdetailcontainer/ItemDetailContainer";
 
+
 function App() {
   return (
     <>
+
+
       <ThemeProvider theme={customTheme} >
 
+
+
         <Navbar />
-        <ItemListContainer greeting="Im greeting" />
+        {/* <ItemListContainer greeting="Im greeting" /> */}
+
+        <br />
         <ItemDetailContainer/>
         
         

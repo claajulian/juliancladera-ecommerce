@@ -1,24 +1,39 @@
-import { useEffect, useState } from "react";
-import { products } from "../../../../utils/productsMock";
+import { useEffect, useState } from "react"
+import { products } from "../../../../utils/productsMock"
+import { ItemDetail } from "./ItemDetail"
+
+
 
 export const ItemDetailContainer = () => {
-  let id = 3;
 
-  const [productSelected, setProductSelected] = useState({});
+  const [productSelected, setProductSelected] = useState({})
 
-  useEffect(() => {
-    const producto = products.find((product) => product.id === id);
+  let id = 3
 
-    const getProduct = new Promise((resolve, reject) => {
-      resolve(producto);
-      reject("Error ");
-    });
-    getProduct
-      .then((res) => setProductSelected(res))
-      .catch((err) => console.log(err));
-  }, [id]);
+  useEffect(()=> {
 
-  console.log(productSelected);
+    let productos = products.find((product)=> product.id === id )
 
-  return <></>;
-};
+    const getProduct = new Promise((resolve,reject)=> {
+      resolve(productos)
+      reject('error')
+    })
+    getProduct.then((res)=> setProductSelected(res)).catch((err)=> console.log(err))
+
+  }, [id])
+
+  // console.log(productSelected);
+
+  const onAdd = (cantidad) => {
+    // console.log('Se agregó al carrito', productSelected);
+    // console.log(cantidad);
+  let obj = {
+      ...productSelected, 
+      quantity: cantidad
+    }
+  console.log('Este es el producto que se agrega', obj)
+
+  }
+
+  return <ItemDetail productSelected = {productSelected} onAdd = {onAdd}/>
+}
