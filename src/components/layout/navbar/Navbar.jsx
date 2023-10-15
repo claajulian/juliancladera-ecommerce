@@ -1,31 +1,37 @@
-import { AppBar, Box, IconButton, Toolbar, Typography,  } from '@mui/material'
+import { AppBar, Box, Toolbar, Typography,  } from '@mui/material'
 import { CartWidget } from '../../common/cartwidget/CartWidget'
-import MenuIcon from '@mui/icons-material/Menu';
+import { Link, Outlet } from 'react-router-dom'
 import './Navbar.css'
 
+
+
 export const Navbar = () => {
+
+let style = {
+  height: '50px',
+  margin: '10px'
+}
+
   return (
     <>
-
-<Box sx={{ flexGrow: 1 }}>
+    
+    
+<Box sx={{ flexGrow: 6}}  >
       <AppBar position="static" >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className='typography' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link to='/'>
+          <img src="/flor.png" alt="" style={style} />
+          </Link>
+          <Typography className='typography' variant="h6" component={Link} to='/' sx={{ flexGrow: 1 }} color={'black'}>
             ROMA DOMA
           </Typography>
-          <Typography className='typography' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography className='typography' variant="h6" component={Link} to='/' sx={{ flexGrow: 1 }} color={'black'}>
+            Todos
+          </Typography>
+          <Typography className='typography' variant="h6" component={Link} to='/category/Cuadros'  sx={{ flexGrow: 1 }} color={'black'}>
             Cuadros
           </Typography>
-          <Typography className='typography'  variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography className='typography'  variant="h6" component={Link} to='/category/Esculturas' sx={{ flexGrow: 1 }} color={'black'}>
             Esculturas
           </Typography>
           <CartWidget/>
@@ -33,6 +39,8 @@ export const Navbar = () => {
       </AppBar>
     </Box>
 
+          <Outlet/>
+          
     </>
   )
 }

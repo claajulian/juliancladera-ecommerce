@@ -1,4 +1,5 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const ProductCard = ({ item }) => {
   return (
@@ -19,7 +20,9 @@ export const ProductCard = ({ item }) => {
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent: 'center'}}>
+        <Link to={`/itemDetail/${item.id}`}>
         <Button size="small" variant="contained">VER DETALLE</Button>
+        </Link>
       </CardActions>
     </Card>
 

@@ -26,7 +26,7 @@ export const Counter = ({ stock, onAdd }) => {
       <h1>{counter}</h1>  
       <Button onClick={Restar} variant="contained">-</Button>
       <br />
-      <Button onClick={()=> onAdd(counter)}>Agregar al carrito</Button>
+      <Button onClick={()=> onAdd(counter)} variant="outlined" size="small" sx={{margin:'10px'}}>Agregar al carrito</Button>
 
       </div>
     </>
