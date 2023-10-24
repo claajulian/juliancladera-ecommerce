@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 
-export const Counter = ({ stock, onAdd }) => {
-  const [counter, setCounter] = useState(1);
+export const Counter = ({ stock, onAdd, initial=1 }) => {
+  const [counter, setCounter] = useState(initial);
 
   const Sumar = () => {
     if (counter < stock) {

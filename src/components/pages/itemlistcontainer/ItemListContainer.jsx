@@ -12,7 +12,7 @@ export const ItemListContainer = () => {
   const [items,setItems] = useState([])
 
   const {categoryName} = useParams();
-  console.log(categoryName ? 'estoy intentando filtrar' : 'estoy en el home ')
+  // console.log(categoryName ? 'estoy intentando filtrar' : 'estoy en el home ')
   
 
   useEffect(()=> {

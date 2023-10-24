@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/m
 import { Counter } from "../../../common/counter/Counter"
 
 
-export const ItemDetail = ({productSelected, onAdd}) => {
+export const ItemDetail = ({productSelected, onAdd, initial}) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
 
@@ -32,7 +32,7 @@ export const ItemDetail = ({productSelected, onAdd}) => {
     </Card>
 
             {/* aca el contador */}
-            <Counter stock={productSelected.stock} onAdd = {onAdd}/>
+            <Counter stock={productSelected.stock} onAdd = {onAdd} initial={initial}/>
 
             
     </div>

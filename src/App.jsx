@@ -6,6 +6,8 @@ import { ItemListContainer } from "./components/pages/itemlistcontainer/ItemList
 import { ItemDetailContainer } from "./components/pages/home/itemdetailcontainer/ItemDetailContainer";
 import { Navbar } from "./components/layout/navbar/Navbar";
 import { Cart } from "./components/pages/cart/Cart";
+import { Checkout } from "./components/pages/checkout/Checkout";
+import { CartContextComponent } from "./context/CartContext";
 
 
 
@@ -15,6 +17,10 @@ function App() {
    <ThemeProvider theme={customTheme} >
 
     <BrowserRouter>
+
+    <CartContextComponent>
+
+   
     
     <Routes>
 
@@ -25,6 +31,7 @@ function App() {
     <Route path="/category/:categoryName" element= {<ItemListContainer/>} />
     <Route path="/cart" element= {<Cart/>} />
     <Route path="/itemDetail/:id" element= {<ItemDetailContainer/>} />
+    <Route path="/checkout" element = {<Checkout/>}/>
 
     </Route>
 
@@ -34,10 +41,12 @@ function App() {
 
     </Routes>
 
+    </CartContextComponent>
+
     </BrowserRouter>
 
-
     </ThemeProvider>
+
     </>
   );
 }

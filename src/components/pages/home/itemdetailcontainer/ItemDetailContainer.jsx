@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { products } from "../../../../utils/productsMock"
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import { CartContext } from "../../../../context/CartContext"
 
 
 export const ItemDetailContainer = () => {
@@ -9,7 +10,11 @@ export const ItemDetailContainer = () => {
   const [productSelected, setProductSelected] = useState({})
 
   const {id} = useParams();
-  
+
+ const {addToCart, getQuantityById} = useContext(CartContext)
+
+  let totalQuantity = getQuantityById(+id)
+  // console.log({totalQuantity})
 
   
 
@@ -30,13 +35,16 @@ export const ItemDetailContainer = () => {
   const onAdd = (cantidad) => {
     // console.log('Se agregó al carrito', productSelected);
     // console.log(cantidad);
-  let obj = {
+  let item = {
       ...productSelected, 
-      quantity: cantidad
+      quantity: cantidad 
     }
-  console.log('Este es el producto que se agrega', obj)
+
+  // console.log('Este es el producto que se agrega', item)
+
+    addToCart( item )
 
   }
 
-  return <ItemDetail productSelected = {productSelected} onAdd = {onAdd}/>
+  return <ItemDetail productSelected = {productSelected} onAdd = {onAdd} initial = {totalQuantity}/>
 }
