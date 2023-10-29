@@ -4,6 +4,8 @@ import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom"
 import { CartContext } from "../../../../context/CartContext"
 
+import Swal from 'sweetalert2'
+
 
 export const ItemDetailContainer = () => {
 
@@ -43,6 +45,14 @@ export const ItemDetailContainer = () => {
   // console.log('Este es el producto que se agrega', item)
 
     addToCart( item )
+
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Producto agregado al carrito',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
   }
 

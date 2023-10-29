@@ -4,6 +4,7 @@ import { ProductCard } from "../../common/productcard/ProductCard";
 import { useParams } from "react-router-dom";
 import { products } from "../../../utils/productsMock";
 
+import HashLoader from "react-spinners/HashLoader";
 
 
 export const ItemListContainer = () => {
@@ -20,24 +21,43 @@ export const ItemListContainer = () => {
 
     const task = new Promise((resolve,reject)=> {
 
-      resolve( categoryName ? productosFiltrados : products );
+      setTimeout(()=>{
+        resolve( categoryName ? productosFiltrados : products );
+
+      },2000)
+     
   
     })
     task.then((resp)=> setItems(resp)) // Se guarda los products en items
     .catch((err)=> console.log(err))
+    
     }, [categoryName])
 
     console.log(items);
-  
+
+
+    // TECNINAS DE RENDERING
+
+    // IF CON RETURN TEMPRANO
+    // if(items.length === 0) {
+    //   return <h1>Cargando...</h1>
+    // }
 
 
   return (
    <>
-     
-      <Typography variant="h4" padding={2}> </Typography>
 
 
-      <section style={{display: 'flex', justifyContent: 'center', gap: '30px'}}> 
+      { /* 2DA TECNICA DE RENDERING TERNARIO ?*/ } 
+
+      {
+        items.length === 0 ?  
+
+        <HashLoader style={{display: 'flex', justifyContent: 'center', gap: '30px'}}  /> 
+
+        : <section style={{display: 'flex', justifyContent: 'center', gap: '30px', marginTop: '35px'}}> 
+
+        
         {
           items.map((item)=> {
 
@@ -45,7 +65,17 @@ export const ItemListContainer = () => {
           })
         }
 
+        
+
       </section>
+
+        
+      }
+
+
+      <Typography variant="h4" padding={2}> </Typography>
+
+
     </>
   );
 };

@@ -6,14 +6,15 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export const CartWidget = () => {
 
-  const {cart} = useContext(CartContext)  // Recibe el estado cart 
+  const { getTotalQuantity } = useContext(CartContext)  // Recibe el estado cart 
  
+  let total = getTotalQuantity()
 
   return (
     <>
       <Link to='/cart'>
 
-      <Badge badgeContent={cart.length} color="secondary">
+      <Badge badgeContent={total} color="secondary">
         <ShoppingCartIcon color="" />
       </Badge>
 

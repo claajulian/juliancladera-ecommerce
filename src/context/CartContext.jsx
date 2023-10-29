@@ -35,12 +35,42 @@ export const CartContextComponent = ( {children} ) => {
     return product?.quantity
   }
 
+  // Limpiar el carrito
   const clearCart = () => {
     setCart([])
   }
 
+  // Borrar un elemento particular del carrito
+  const deleteProductById = (id) => {
+    console.log('el id es: ' , id)
+    let newArr = cart.filter((product)=> product.id !== id )
+    setCart(newArr)
+  }
 
-  let data = { cart, addToCart, getQuantityById, clearCart } // Van las cosas que quiero proveer a los hijos.
+  // Obtener el total del carrito
+  const getTotalPrice = () => {
+    let total = cart.reduce((acc, elemento)=> {
+      return acc + (elemento.price * elemento.quantity)
+    }, 0)
+
+    return total;
+
+  }
+
+  // Obtener la cantidad de elementos
+  const getTotalQuantity = () => {
+    let total = cart.reduce((acc,elemento)=> {
+      return acc + elemento.quantity
+    }, 0 )
+
+    return total;
+    
+  }
+
+
+
+
+  let data = { cart, addToCart, getQuantityById, clearCart, deleteProductById, getTotalPrice, getTotalQuantity} // Van las cosas que quiero proveer a los hijos.
   
   return (
 

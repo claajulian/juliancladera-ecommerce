@@ -1,5 +1,7 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
+import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
 import { Counter } from "../../../common/counter/Counter"
+import { Link } from "react-router-dom"
+
 
 
 export const ItemDetail = ({productSelected, onAdd, initial}) => {
@@ -31,9 +33,17 @@ export const ItemDetail = ({productSelected, onAdd, initial}) => {
       </CardActionArea>
     </Card>
 
+
+    {/* {
+
+      initial && <h4>Ya tienes {initial} unidades</h4>  
+    } */}
+    
+
             {/* aca el contador */}
             <Counter stock={productSelected.stock} onAdd = {onAdd} initial={initial}/>
 
+            {/* <Button component = {Link} to='/cart' variant="contained">Terminar compra</Button> */}
             
     </div>
   )
