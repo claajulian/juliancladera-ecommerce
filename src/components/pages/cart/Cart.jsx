@@ -49,15 +49,16 @@ export const Cart = () => {
       })}
 
       { cart.length > 0 && (
-        <div>
+        <div style={{}}> 
           <h2>El total a pagar es: U$S {total}</h2>
-
+          <div>
           <Link to="/checkout">
-            <Button variant="contained">Finalizar Compra</Button>
+            <Button variant="contained" sx={{marginRight:'10px'}}>Finalizar Compra</Button>
           </Link>
-          <Button variant="contained" onClick={clearCartWithAlert}>
+          <Button variant="contained" sx={{marginRight:'10px'}} onClick={clearCartWithAlert}>
             Vaciar Carrito
           </Button>
+          </div>
         </div>
       )}
     </div>
