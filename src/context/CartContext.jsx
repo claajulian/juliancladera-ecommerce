@@ -4,7 +4,7 @@ export const CartContext = createContext()
 
 export const CartContextComponent = ( {children} ) => {
 
-  const [cart,setCart] = useState([])
+  const [cart,setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [] )
 
   const addToCart = (product) => {
 
@@ -18,9 +18,11 @@ export const CartContextComponent = ( {children} ) => {
         }
       })
       setCart(newArr)
+      localStorage.setItem('cart', JSON.stringify(newArr) )
 
    } else {
     setCart( [...cart, product] )
+    localStorage.setItem('cart', JSON.stringify([...cart,product]))
    }
   }
 
@@ -38,6 +40,7 @@ export const CartContextComponent = ( {children} ) => {
   // Limpiar el carrito
   const clearCart = () => {
     setCart([])
+    localStorage.removeItem('cart')
   }
 
   // Borrar un elemento particular del carrito
@@ -45,6 +48,7 @@ export const CartContextComponent = ( {children} ) => {
     console.log('el id es: ' , id)
     let newArr = cart.filter((product)=> product.id !== id )
     setCart(newArr)
+    localStorage.setItem('cart', JSON.stringify(newArr))
   }
 
   // Obtener el total del carrito

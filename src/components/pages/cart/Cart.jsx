@@ -34,7 +34,7 @@ export const Cart = () => {
     <div>
       <h1>Estoy en el carrito</h1>
 
-      {cart.map((product) => {
+      { cart.map((product) => {
         return (
           <div key={product.id}>
             <h2> {product.title} </h2>

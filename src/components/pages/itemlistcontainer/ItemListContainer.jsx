@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { ProductCard } from "../../common/productcard/ProductCard";
 import { useParams } from "react-router-dom";
 import { products } from "../../../utils/productsMock";
 
 import HashLoader from "react-spinners/HashLoader";
+import { getDocs, collection, query, where, addDoc } from 'firebase/firestore'
+import { db } from "../../../firebaseConfig";
 
 
 export const ItemListContainer = () => {
@@ -13,24 +15,46 @@ export const ItemListContainer = () => {
   const [items,setItems] = useState([])
 
   const {categoryName} = useParams();
-  // console.log(categoryName ? 'estoy intentando filtrar' : 'estoy en el home ')
+  // console.log(categoryName ? 'estoy intentando filtrar' : 'estoy en el home '
+
+  // const rellenarDB = () => {
+
+  //   const prodCollection = collection(db, 'products')
+
+  //   products.forEach((elemento)=>{
+  //     addDoc(prodCollection, elemento)
+  //   })
+  // }
   
 
   useEffect(()=> {
-    const productosFiltrados = products.filter( product => product.category === categoryName)
 
-    const task = new Promise((resolve,reject)=> {
+    let productCollection = collection(db,'products')
 
-      setTimeout(()=>{
-        resolve( categoryName ? productosFiltrados : products );
+    let consulta = undefined
 
-      },2000)
-     
-  
+    if (!categoryName) {
+      // SI NO EXISTE CATEGORYNAME -> TODOS MIS PRODUCTOS
+      consulta = productCollection
+      
+
+    } else {
+      // SI EXISTE CATEGORYNAME -> PARTE DE MIS PRODUCTOS
+      consulta = query(productCollection,where('category','==',categoryName))
+
+    }
+
+    getDocs(consulta).then(res => {
+      let newArray = res.docs.map(product => {
+        return {...product.data(), id: product.id}
+      })
+
+      // let arrayFiltrado = newArray.filter((elemento)=> elemento.stock > 0 )
+
+      setItems(newArray)
     })
-    task.then((resp)=> setItems(resp)) // Se guarda los products en items
-    .catch((err)=> console.log(err))
-    
+
+ 
     }, [categoryName])
 
     console.log(items);
@@ -46,9 +70,10 @@ export const ItemListContainer = () => {
 
   return (
    <>
-
-
+      {/* <Button variant="contained" onClick={rellenarDB}>Rellenar</Button> */}
       { /* 2DA TECNICA DE RENDERING TERNARIO ?*/ } 
+
+
 
       {
         items.length === 0 ?  

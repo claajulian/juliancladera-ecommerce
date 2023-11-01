@@ -20,9 +20,12 @@ export const ProductCard = ({ item }) => {
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent: 'center'}}>
-        <Link to={`/itemDetail/${item.id}`}>
+        {
+          item.stock > 0 ? 
+          <Link to={`/itemDetail/${item.id}`}>
         <Button size="small" variant="contained">VER DETALLE</Button>
-        </Link>
+        </Link> : <Button variant="contained" disabled>Sin Stock</Button>
+        }
       </CardActions>
     </Card>
 
