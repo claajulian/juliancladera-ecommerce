@@ -6,6 +6,7 @@ import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 
+
 export const Checkout = () => {
   // const [nombre, setNombre] = useState('')
   // const [apellido, setApellido] = useState('')

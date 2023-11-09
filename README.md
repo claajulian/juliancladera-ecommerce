@@ -1,8 +1,18 @@
-# React + Vite
+# TIENDA DE ROMA DOMA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![](https://acdn.mitiendanube.com/stores/001/682/797/themes/common/logo-679741769-1646959762-b01c8a0e068d042b4b74cd8ad7553ca71646959763-320-0.webp)
 
-Currently, two official plugins are available:
+### Las herramientas utilizadas son:
+- React
+- Firebase
+- Formik
+- YUP
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+<!-- ```
+npm i formik
+```
+
+``` javascript
+const sumar
+``` -->

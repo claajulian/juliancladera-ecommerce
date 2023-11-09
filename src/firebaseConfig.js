@@ -4,12 +4,12 @@ import { getFirestore } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyARMlfRwzKU-sRuRdqIhYaeaojJM0xuz5o",
-  authDomain: "e-commerce-cladera.firebaseapp.com",
-  projectId: "e-commerce-cladera",
-  storageBucket: "e-commerce-cladera.appspot.com",
-  messagingSenderId: "46144991136",
-  appId: "1:46144991136:web:a45495c4fb9645cb033ec5"
+  apiKey: import.meta.env.VITE_API_KEY ,
+  authDomain: import.meta.env.VITE_AUTH ,
+  projectId: import.meta.env.VITE_PROJECTID ,
+  storageBucket: import.meta.env.VITE_STORAGE ,
+  messagingSenderId: import.meta.env.VITE_MESSAGING ,
+  appId: import.meta.env.VITE_APPID 
 };
 
 // Initialize Firebase

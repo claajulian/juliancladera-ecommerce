@@ -14,9 +14,10 @@ export const CartWidget = () => {
     <>
       <Link to='/cart'>
 
-      <Badge badgeContent={total} color="secondary">
-        <ShoppingCartIcon color="" />
+      <Badge badgeContent={total} showZero color="secondary"> 
+        <ShoppingCartIcon color=""  />
       </Badge>
+      
 
       </Link>
 
