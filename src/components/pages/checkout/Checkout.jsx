@@ -70,7 +70,7 @@ export const Checkout = () => {
 
   return (
     <div>
-      <h1>Estoy en el checkout</h1>
+      <h1>Checkout</h1>
       {orderId ? (
         <div>
           <h2>Gracias por su compra, su N° de comporbante es {orderId}</h2>
@@ -78,7 +78,7 @@ export const Checkout = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          {/* <input type="text" name="nombre" onChange={  (e) => setNombre(e.target.value) } /> */}
+          
 
           <input
             type="text"

@@ -1,4 +1,6 @@
 body {
-    background: linear-gradient(to bottom, #0074B4, #00FF6C);
+    /* background: linear-gradient(to bottom, #0074B4, #00FF6C);
+     */
+     background-color: antiquewhite;
     height: 100vh; /* Ajusta la altura según tus necesidades */
   }

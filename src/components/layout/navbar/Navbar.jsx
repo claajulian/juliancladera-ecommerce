@@ -9,7 +9,7 @@ export const Navbar = () => {
 
 let style = {
   height: '50px',
-  margin: '10px'
+  margin: '15px'
 }
 
   return (

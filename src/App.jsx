@@ -8,6 +8,8 @@ import { Navbar } from "./components/layout/navbar/Navbar";
 import { Cart } from "./components/pages/cart/Cart";
 import { Checkout } from "./components/pages/checkout/Checkout";
 import { CartContextComponent } from "./context/CartContext";
+import { Footer } from "./components/layout/footer/Footer";
+
 
 
 
@@ -21,13 +23,12 @@ function App() {
 
     <CartContextComponent>
 
-   
-    
+
     <Routes>
 
 
     <Route element= {<Navbar/>}>
-
+    
     <Route path="/" element= {<ItemListContainer/>} />
     <Route path="/category/:categoryName" element= {<ItemListContainer/>} />
     <Route path="/cart" element= {<Cart/>} />
@@ -36,6 +37,7 @@ function App() {
 
     </Route>
 
+    
 
     <Route path='*' element= { <h1>Not found</h1>} />     {/* Si hay alguna ruta que no existe muestra ese mensaje */}
 

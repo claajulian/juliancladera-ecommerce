@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import './Cart.css'
+
 import Swal from 'sweetalert2'
 
 export const Cart = () => {
@@ -30,14 +32,23 @@ export const Cart = () => {
     })
   }
 
+  let style = {
+    border: '2px solid black',
+    height: '400px',
+    width:'400px',
+    padding: '5px',
+    marginTop: '20px'
+  }
+
   return (
     <div>
-      <h1>Estoy en el carrito</h1>
+      <h1>Carrito de compras</h1>
 
       { cart.map((product) => {
         return (
-          <div key={product.id}>
+          <div key={product.id} style={style}>
             <h2> {product.title} </h2>
+            <img src={product.img} className="img-product"/>
             <h2> Cantidad: {product.quantity} </h2>
             <h3> U$D: {product.price} </h3>
             <h3> Envío Gratis </h3>
@@ -49,8 +60,8 @@ export const Cart = () => {
       })}
 
       { cart.length > 0 && (
-        <div style={{}}> 
-          <h2>El total a pagar es: U$S {total}</h2>
+        <div> 
+          <h1>El total a pagar es: U$S {total}</h1 >
           <div>
           <Link to="/checkout">
             <Button variant="contained" sx={{marginRight:'10px'}}>Finalizar Compra</Button>
@@ -58,6 +69,9 @@ export const Cart = () => {
           <Button variant="contained" sx={{marginRight:'10px'}} onClick={clearCartWithAlert}>
             Vaciar Carrito
           </Button>
+
+        
+
           </div>
         </div>
       )}

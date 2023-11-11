@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 export const ItemDetail = ({productSelected, onAdd, initial}) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', padding:'50px'}}>
 
             {/* {aca el detalle del producto} */}
 

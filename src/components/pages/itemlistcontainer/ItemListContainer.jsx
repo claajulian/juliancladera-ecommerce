@@ -57,7 +57,7 @@ export const ItemListContainer = () => {
  
     }, [categoryName])
 
-    console.log(items);
+    // console.log(items);
 
 
     // TECNINAS DE RENDERING
